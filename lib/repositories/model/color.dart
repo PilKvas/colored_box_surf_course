@@ -46,9 +46,4 @@ class ColoredBoxModel {
       );
     }
   }
-
-  @override
-  String toString() {
-    return "$name $value $red $green $blue";
-  }
 }

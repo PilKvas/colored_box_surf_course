@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/services.dart';
 
-import 'color.dart';
+import 'model/color.dart';
 
 class ColorRepository {
   static Future<List<ColoredBoxModel>> getColors() async {
@@ -14,7 +14,6 @@ class ColorRepository {
     final List<ColoredBoxModel> colorList = colorJsonList.map((colorJson) {
       return ColoredBoxModel.fromJson(colorJson);
     }).toList();
-
     return colorList;
   }
 }

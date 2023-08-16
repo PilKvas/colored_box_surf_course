@@ -16,13 +16,13 @@ class RgbRow extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: [
         RgbBox(
-          text: Text("Red $item.red"),
+          text: Text("Red ${item.red}"),
         ),
         RgbBox(
-          text: Text("Red $item.green"),
+          text: Text("Red ${item.green}"),
         ),
         RgbBox(
-          text: Text("Red $item.blue"),
+          text: Text("Red ${item.blue}"),
         ),
       ],
     );

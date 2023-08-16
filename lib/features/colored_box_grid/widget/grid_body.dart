@@ -14,29 +14,32 @@ class GridBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Expanded(
-      child: FutureBuilder<List<ColoredBoxModel>>(
-          future: ColorRepository.getColors(),
-          builder: (BuildContext context,
-              AsyncSnapshot<List<ColoredBoxModel>> snapshot) {
-            if (snapshot.hasData) {
-              return GridView.builder(
-                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                    mainAxisSpacing: 50,
-                    crossAxisCount: 3,
-                  ),
-                  itemCount: snapshot.data!.length,
-                  itemBuilder: (BuildContext context, int index) {
-                    ColoredBoxModel item = snapshot.data![index];
-                    return GridItem(
-                      item: item,
-                      index: index,
-                    );
-                  });
-            } else if (snapshot.hasError) {
-              return Text("${snapshot.error}");
-            }
-            return const Center(child: CircularProgressIndicator());
-          }),
+      child: RefreshIndicator(
+        onRefresh: () => ColorRepository.getColors(),
+        child: FutureBuilder<List<ColoredBoxModel>>(
+            future: ColorRepository.getColors(),
+            builder: (BuildContext context,
+                AsyncSnapshot<List<ColoredBoxModel>> snapshot) {
+              if (snapshot.hasData) {
+                return GridView.builder(
+                    gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                      mainAxisSpacing: 50,
+                      crossAxisCount: 3,
+                    ),
+                    itemCount: snapshot.data!.length,
+                    itemBuilder: (BuildContext context, int index) {
+                      ColoredBoxModel item = snapshot.data![index];
+                      return GridItem(
+                        item: item,
+                        index: index,
+                      );
+                    });
+              } else if (snapshot.hasError) {
+                return Text("${snapshot.error}");
+              }
+              return const Center(child: CircularProgressIndicator());
+            }),
+      ),
     );
   }
 }
