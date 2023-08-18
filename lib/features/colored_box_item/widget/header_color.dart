@@ -1,9 +1,8 @@
-import 'package:colored_box/features/colored_box_item/provider/provider.dart';
+import 'package:colored_box/features/provider/provider.dart';
 import 'package:colored_box/repositories/repositories.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
-
-
 
 class HeaderColor extends StatelessWidget {
   const HeaderColor({
@@ -24,14 +23,19 @@ class HeaderColor extends StatelessWidget {
           child: Container(
             height: MediaQuery.of(context).size.height / 2,
             color: Color(
-                int.parse(item.value.substring(1), radix: 16) + 0xFF000000),
+              int.parse(
+                    item.value.substring(1),
+                    radix: 16,
+                  ) +
+                  0xFF000000,
+            ),
           ),
         ),
         SafeArea(
           child: IconButton(
+              iconSize: 24.r,
               onPressed: () {
-                context.read<CopyModel>().leave();
-                Navigator.of(context).pop();
+                context.read<CopyModel>().leave(context);
               },
               icon: const Icon(
                 Icons.arrow_back_ios_new,

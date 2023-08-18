@@ -1,4 +1,6 @@
+import 'package:colored_box/components/components.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class GridItemFigureNoValue extends StatelessWidget {
   const GridItemFigureNoValue({
@@ -8,17 +10,17 @@ class GridItemFigureNoValue extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.only(
-        bottom: 5,
+      margin: EdgeInsets.only(
+        bottom: 5.h,
       ),
-      height: 96,
-      width: 96,
+      height: 100.w,
+      width: 100.w,
       child: ClipRRect(
         borderRadius: BorderRadius.circular(
-          10,
+          16.r,
         ),
         child: Image.asset(
-          'assets/white.jpeg',
+          AppColors.errorImage,
           fit: BoxFit.fill,
         ),
       ),

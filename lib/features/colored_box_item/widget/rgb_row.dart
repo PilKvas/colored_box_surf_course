@@ -13,16 +13,19 @@ class RgbRow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceAround,
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
         RgbBox(
-          text: Text("Red ${item.red}"),
+          color: 'Red',
+          value: item.red,
         ),
         RgbBox(
-          text: Text("Red ${item.green}"),
+          color: 'Green',
+          value: item.green,
         ),
         RgbBox(
-          text: Text("Red ${item.blue}"),
+          color: 'Blue',
+          value: item.blue,
         ),
       ],
     );
