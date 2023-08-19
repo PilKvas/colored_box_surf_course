@@ -1,5 +1,6 @@
 import 'package:colored_box/repositories/repositories.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ColorName extends StatelessWidget {
   const ColorName({
@@ -12,14 +13,10 @@ class ColorName extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(15.0),
+      padding: EdgeInsets.all(15.0.r),
       child: Text(
         item.name,
-        style: const TextStyle(
-          fontSize: 30,
-          color: Color.fromARGB(255, 37, 40, 56),
-          fontWeight: FontWeight.bold,
-        ),
+        style: Theme.of(context).textTheme.titleLarge,
         textAlign: TextAlign.left,
       ),
     );
