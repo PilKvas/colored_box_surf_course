@@ -1,4 +1,3 @@
-
 import 'package:colored_box/components/components.dart';
 import 'package:colored_box/features/provider/provider.dart';
 import 'package:colored_box/repositories/repositories.dart';
@@ -21,7 +20,7 @@ class ColorHex extends StatelessWidget {
         15.0.r,
       ),
       child: GestureDetector(
-        onTap: () {
+        onLongPress: () {
           context
               .read<CopyModel>()
               .copyLogicAndDisplaySnack(context, item.value);

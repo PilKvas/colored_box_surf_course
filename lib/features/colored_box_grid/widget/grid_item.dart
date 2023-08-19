@@ -23,7 +23,7 @@ class GridItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       child: GestureDetector(
-        onDoubleTap: () {
+        onLongPress: () {
           Provider.of<CopyModel>(context, listen: false)
               .copyLogicAndDisplaySnack(context, item.value);
           Clipboard.setData(
